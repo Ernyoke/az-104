@@ -1,0 +1,11 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+write_files:
+  - owner: www-data:www-data
+  - path: /var/www/html/index.html
+    content: |
+        Hello world from Virtual Machine Scale Set !
+runcmd:
+  - service nginx restart
